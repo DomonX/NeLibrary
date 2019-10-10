@@ -4,18 +4,18 @@
 
 using namespace std;
 
-static class Ne_configuration {
+class Ne_configuration {
 public:
-	static int default_screen_width;
-	static int default_screen_height;
-	static int desired_screen_width;
-	static int desired_screen_height;
-	static int current_screen_width;
-	static int current_screen_height;
-	static string project_title;
-	static float frames_per_second;
-	static int day_time;
-	static int fonts_max_size;
+	int default_screen_width;
+	int default_screen_height;
+	int desired_screen_width;
+	int desired_screen_height;
+	int current_screen_width;
+	int current_screen_height;
+	string project_title;
+	float frames_per_second;
+	int day_time;
+	int fonts_max_size;
 
 	Ne_configuration() {
 		default_screen_width = 640;
@@ -30,3 +30,5 @@ public:
 		fonts_max_size = 128;
 	}
 };
+
+Ne_configuration* ne_config = new Ne_configuration();

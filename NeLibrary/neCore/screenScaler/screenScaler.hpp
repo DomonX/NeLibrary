@@ -4,21 +4,21 @@
 #include "../configuration/allegroConfiguration.hpp"
 #include "../configuration/configuration.hpp"
 
-class Ne_screenScaler {
+static class Ne_screenScaler{
 public:
 	static double ne_get_screen_scale() {
-		double scale_y = (double)al_get_display_height(Ne_al_configuration::window) / Ne_configuration::desired_screen_height;
-		double scale_x = (double)al_get_display_width(Ne_al_configuration::window) / Ne_configuration::desired_screen_width;
+		double scale_y = (double)al_get_display_height(ne_al_config->window) / ne_config->desired_screen_height;
+		double scale_x = (double)al_get_display_width(ne_al_config->window) / ne_config->desired_screen_width;
 		return scale_x < scale_y ? scale_x : scale_y;
 	}
 	static double ne_get_screen_reversed_scale() {
-		return (double)Ne_configuration::desired_screen_width / al_get_display_width(Ne_al_configuration::window);
+		return (double)ne_config->desired_screen_width / al_get_display_width(ne_al_config->window);
 	}
 	static int ne_get_screen_shift_x() {
-		return (al_get_display_width(Ne_al_configuration::window) - Ne_configuration::desired_screen_width * ne_get_screen_scale()) / 2;
+		return (al_get_display_width(ne_al_config->window) - ne_config->desired_screen_width * ne_get_screen_scale()) / 2;
 	}
 	static int ne_get_screen_shift_y() {
-		return (al_get_display_height(Ne_al_configuration::window) - Ne_configuration::desired_screen_height * ne_get_screen_scale()) / 2;
+		return (al_get_display_height(ne_al_config->window) - ne_config->desired_screen_height * ne_get_screen_scale()) / 2;
 	}
 	static int ne_get_x_pos_scale(int x) {
 		return x * ne_get_screen_scale() + ne_get_screen_shift_x();
